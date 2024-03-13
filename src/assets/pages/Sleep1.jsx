@@ -48,7 +48,6 @@ export default function Sleep1() {
             value={sleepHour}
             placeholder='Select number of sleep hours'
             onChange={handleSleepHour}
-            isMulti
             isSearchable={true}
           />
         </div>
@@ -59,7 +58,7 @@ export default function Sleep1() {
             value={status}
             placeholder='Select your smoking and alcohol status'
             onChange={handleStatus}
-            isMulti
+            isMulti={status && status.value !== 'Never'}
             isSearchable={true}
           />
         </div>

@@ -36,6 +36,7 @@ export default function Exercise1() {
   ];
 
   const symptoms = [
+    { label: 'None', symptom: 'None', value: 'None' },
     { label: 'Chest pain', symptom: 'Chest pain', value: 'Chest pain' },
     { label: 'Dizziness', symptom: 'Dizziness', value: 'Dizziness' },
     { label: 'Shortness of breath', symptom: 'Shortness of breath', value: 'Shortness of breath' },
@@ -43,6 +44,7 @@ export default function Exercise1() {
   ];
 
   const boneOptions = [
+    { label: 'None', bone: 'None', value: 'None' },
     { label: 'Wrist discomfort', bone: 'Wrist discomfort', value: 'Wrist discomfort' },
     { label: 'Elbow pain', bone: 'Elbow pain', value: 'Elbow pain' },
     { label: 'Lower back pain', bone: 'Lower back pain', value: 'Lower back pain' },
@@ -68,7 +70,6 @@ export default function Exercise1() {
             value={duration}
             placeholder='Select duration of exercise'
             onChange={handleDuration}
-            isMulti
             isSearchable={true}
           />
         </div>
@@ -79,7 +80,7 @@ export default function Exercise1() {
             value={symptom}
             placeholder='Select if you experience any symptoms'
             onChange={handleSymptom}
-            isMulti
+            isMulti={symptom && symptom.value !== 'None'}
             isSearchable={true}
           />
         </div>
@@ -90,7 +91,7 @@ export default function Exercise1() {
             value={bone}
             placeholder='Select physical limitations'
             onChange={handleBone}
-            isMulti
+            isMulti={bone && bone.value !== 'None'}
             isSearchable={true}
           />
         </div>

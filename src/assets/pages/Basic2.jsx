@@ -4,6 +4,7 @@ import Select from 'react-select';
 
 export default function Basic2() {
     const diseases = [
+        {label:'None', disease:'None', value:'None'},
         {label:'Heart Disease', disease:'Heart Disease', value:'Heart Disease'},
         {label:'Stroke', disease:'Stroke', value:'Stroke'},
         {label:'Cancer', disease:'Cancer', value:'Cancer'},
@@ -24,6 +25,7 @@ export default function Basic2() {
       ]
 
       const allergies =[
+        {label:'None', allergy:'None',value:'None'},
         {label:'Drug / Medicines', allergy:'Drug / Medicines',value:'Drug / Medicines'},
         {label:'Food', allergy:'Food',value:'Food'},
         {label:'Pollen', allergy:'Pollen',value:'Pollen'},
@@ -35,18 +37,19 @@ export default function Basic2() {
       ]
 
       const histories = [
-        {label:'Heart Disease', disease:'Heart Disease', value:'Heart Disease'},
-        {label:'Stroke', disease:'Stroke', value:'Stroke'},
-        {label:'Cancer', disease:'Cancer', value:'Cancer'},
-        {label:'Type 2 diabetes', disease:'Type 2 diabetes', value:'Type 2 diabetes'},
-        {label:'Arthritis', disease:'Arthritis', value:'Arthritis'},
-        {label:'Osteoporosis', disease:'Osteoporosis', value:'Osteoporosis'},
-        {label:'Asthma', disease:'Asthma', value:'Asthma'},
-        {label:'Chronic Kidney Disease', disease:'CKD', value:'CKD'},
-        {label:'Hypertension / High Blood Pressure', disease:'Hypertension', value:'Hypertension'},
-        {label:'High Cholestrol', disease:'Cholestrol', value:'Cholestrol'},
-        {label:'Irritable Bowel Syndrome', disease:'IBS', value:'IBS'},
-        {label:'Kidney Stones', disease:'Kidney Stones', value:'Kidney Stones'},
+        {label:'None', history:'None', value:'None'},
+        {label:'Heart disease', history:'Heart disease', value:'Heart disease'},
+        {label:'Stroke', history:'Stroke', value:'Stroke'},
+        {label:'Cancer', history:'Cancer', value:'Cancer'},
+        {label:'Type 2 diabetes', history:'Type 2 diabetes', value:'Type 2 diabetes'},
+        {label:'Arthritis', history:'Arthritis', value:'Arthritis'},
+        {label:'Osteoporosis', history:'Osteoporosis', value:'Osteoporosis'},
+        {label:'Asthma', history:'Asthma', value:'Asthma'},
+        {label:'Chronic Kidney history', history:'CKD', value:'CKD'},
+        {label:'Hypertension / High Blood Pressure', history:'Hypertension', value:'Hypertension'},
+        {label:'High Cholestrol', history:'Cholestrol', value:'Cholestrol'},
+        {label:'Irritable Bowel Syndrome', history:'IBS', value:'IBS'},
+        {label:'Kidney Stones', history:'Kidney Stones', value:'Kidney Stones'},
       ]
 
   const [disease, setDisease] = useState('')
@@ -85,6 +88,7 @@ export default function Basic2() {
             placeholder='Select chronic diseases'
             onChange={handleDisease}
             isSearchable={true}
+            isMulti={disease && disease.value !== 'None'}
           />
         </div>    
 
@@ -97,6 +101,7 @@ export default function Basic2() {
             placeholder='Select allergies'
             onChange={handleAllergy}
             isSearchable={true}
+            isMulti={allergy && allergy.value !== 'None'}
           />
         </div> 
 
@@ -109,6 +114,7 @@ export default function Basic2() {
             placeholder='Select chronic diseases'
             onChange={handleHistory}
             isSearchable={true}
+            isMulti={history && history.value !== 'None'}
           />
         </div>    
 

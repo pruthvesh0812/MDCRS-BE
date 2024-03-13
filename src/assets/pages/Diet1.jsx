@@ -38,6 +38,7 @@ export default function Diet1() {
   ];
 
   const allergies = [
+    { label: 'None', allergy: 'None', value: 'None' },
     { label: 'Lactose intolerance', allergy: 'Lactose', value: 'Lactose' },
     { label: 'Gluten intolerance', allergy: 'Gluten', value: 'Gluten' },
     { label: 'Low carb diet', allergy: 'Low carb', value: 'Low carb' },
@@ -52,6 +53,7 @@ export default function Diet1() {
   ];
 
   const junk_options = [
+    { label: 'Never', junk: 'Never', value: 'Never' },
     { label: 'Every Meal', junk: 'Every Meal', value: 'Every Meal' },
     { label: 'More than thrice a week', junk: 'More than thrice a week', value: 'More than thrice a week' },
     { label: 'Less than twice a week', junk: 'Less than twice a week', value: 'Less than twice a week' },
@@ -76,7 +78,7 @@ export default function Diet1() {
               value={allergy}
               placeholder='Select food intolerances if any'
               onChange={handleAllergy}
-              isMulti
+              isMulti={allergy && allergy.value !== 'None'}
               isSearchable={true}
             />
           </div>
@@ -89,7 +91,6 @@ export default function Diet1() {
               value={junk}
               placeholder='Select junk food frequency'
               onChange={handleJunk}
-              isMulti
               isSearchable={true}
             />
           </div>

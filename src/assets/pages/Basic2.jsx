@@ -21,7 +21,6 @@ export default function Basic2() {
         {label:'Irritable Bowel Syndrome', disease:'IBS', value:'IBS'},
         {label:'Kidney Stones', disease:'Kidney Stones', value:'Kidney Stones'},
         {label:'Thyroid Disorders', disease:'Thyroid Disorders', value:'Thyroid Disorders'},
-        {}
       ]
 
       const allergies =[
@@ -48,28 +47,31 @@ export default function Basic2() {
         {label:'High Cholestrol', disease:'Cholestrol', value:'Cholestrol'},
         {label:'Irritable Bowel Syndrome', disease:'IBS', value:'IBS'},
         {label:'Kidney Stones', disease:'Kidney Stones', value:'Kidney Stones'},
-        {}
       ]
 
   const [disease, setDisease] = useState('')
   const [allergy, setAllergy] = React.useState('');
   const [history, setHistory] = React.useState('');
-
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const handleDisease = (data) => {
     setDisease(data);
+    setIsFormValid(data !== '' && allergy !== '' && history !== '');
   }
 
   const handleAllergy = (data) => {
     setAllergy(data);
+    setIsFormValid(data !== '' && disease !== '' && history !== '');
   };
 
   const handleHistory = (data) => {
     setHistory(data);
+    setIsFormValid(data !== '' && disease !== '' && allergy !== '');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // You can submit the form here
   }
 
   return (
@@ -78,12 +80,10 @@ export default function Basic2() {
       <h3  className='font-Roboto text-sm mb-1'>Are you undergoing any of the chronic illnesses?</h3>
         <div className=''>
           <Select
-            // label="Do you have any known Vitamin deficiencies?"
             options={diseases}
             value={disease}
             placeholder='Select chronic diseases'
             onChange={handleDisease}
-            isMulti
             isSearchable={true}
           />
         </div>    
@@ -96,7 +96,6 @@ export default function Basic2() {
             value={allergy}
             placeholder='Select allergies'
             onChange={handleAllergy}
-            isMulti
             isSearchable={true}
           />
         </div> 
@@ -105,20 +104,17 @@ export default function Basic2() {
 
         <div className=''>
           <Select
-            // label="Do you have any known Vitamin deficiencies?"
             options={histories}
             value={history}
             placeholder='Select chronic diseases'
             onChange={handleHistory}
-            isMulti
             isSearchable={true}
-            
           />
         </div>    
 
            
-        <Link to='/basic3'>
-        <button type='submit' className='rounded-md bg-green-900 px-5 py-2 text-white mt-5'>Submit</button>
+        <Link to='/'>
+        <button type='submit' disabled={!isFormValid} className={`rounded-md px-5 py-2 text-white mt-5 ${isFormValid ? 'bg-green-900' : 'bg-gray-400'}`}>Submit</button>
         </Link>
         </form>
     </div>

@@ -102,7 +102,7 @@ export default function Exercise1() {
         </div>
       </div>
       <Link to=''>
-          <button type="submit">Submit</button>
+        <button type='submit' className='rounded-md bg-green-900 px-5 py-2 text-white mt-5'>Submit</button>
         </Link>
       </form>
     </div>

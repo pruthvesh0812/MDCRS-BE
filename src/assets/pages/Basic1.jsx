@@ -27,14 +27,14 @@ const Basic1 = () => {
   };
 
   return (
-    <div className='ml-[30%] my-[10%]'>
+    <div className='ml-[30%] my-[10%] '>
       {/* <h2>Basic Questionnaire</h2> */}
       <form onSubmit={handleSubmit}>
       <div  className='mt-5 fle'>
         <h3 className='font-Roboto text-sm mb-1'>
           Age</h3>
           <input type="text" value={age} placeholder="Enter age in years" onChange={(e) => setAge(e.target.value)} 
-            className='h-8 border border-blue-500 px-3 py-2 rounded  focus:outline-none focus:border-blue-700 w-1/2 '
+            className='h-8 border border-green-500 px-3 py-2 rounded  focus:outline-none focus:border-green-700 w-1/2 '
                       />
         
         </div>
@@ -55,7 +55,7 @@ const Basic1 = () => {
         <div className='mt-5'>
         <h3  className='font-Roboto text-sm mb-1'>
           Weight</h3>
-          <input type="text" value={weight} placeholder="Enter weight in kgs" onChange={(e) => setWeight(e.target.value)}             className='h-8 border border-blue-500 px-3 py-2 rounded  focus:outline-none focus:border-blue-700  '
+          <input type="text" value={weight} placeholder="Enter weight in kgs" onChange={(e) => setWeight(e.target.value)}             className='h-8 border border-green-500 px-3 py-2 rounded  focus:outline-none focus:border-green-700  '
 />
         
         </div>
@@ -65,7 +65,7 @@ const Basic1 = () => {
         <div className='mt-5 ml-4'>
         <h3  className='font-Roboto text-sm mb-1'>
             Height</h3>
-            <input type='text' value={height} placeholder="Enter height in m" onChange={(e) => setHeight(e.target.value)}             className='h-8 border border-blue-500 px-3 py-2 rounded  focus:outline-none focus:border-blue-700  '
+            <input type='text' value={height} placeholder="Enter height in m" onChange={(e) => setHeight(e.target.value)}             className='h-8 border border-green-500 px-3 py-2 rounded  focus:outline-none focus:border-green-700  '
 />
         
         </div>
@@ -85,7 +85,7 @@ const Basic1 = () => {
         
         
         <Link to=''>
-          <button type="submit">Submit</button>
+        <button type='submit' className='rounded-md bg-green-900 px-5 py-2 text-white mt-5'>Submit</button>
         </Link>
         
       </form>

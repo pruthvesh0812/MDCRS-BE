@@ -101,7 +101,7 @@ export default function Basic2() {
           />
         </div> 
 
-        <h3  className='font-Roboto text-sm mb-1'>Do you have a family history of the following illnesses?</h3>
+        <h3  className='font-Roboto text-sm mb-1 mt-5'>Do you have a family history of the following illnesses?</h3>
 
         <div className=''>
           <Select
@@ -118,7 +118,7 @@ export default function Basic2() {
 
            
         <Link to='/basic3'>
-          <button type="submit">Submit</button>
+        <button type='submit' className='rounded-md bg-green-900 px-5 py-2 text-white mt-5'>Submit</button>
         </Link>
         </form>
     </div>

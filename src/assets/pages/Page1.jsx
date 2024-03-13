@@ -31,8 +31,8 @@ export default function Page1() {
                 <button className='rounded-md bg-green-900 px-5 py-2 text-white absolute bottom-5'>Go</button>
             </Link>
       </div><div className='bg-green-100 m-5 p-5 h-[200px] border-1 relative'>
-            <h4 className='font-Roboto text-md'>How is your sleep health?</h4>
-            <Link>
+            <h4 className='font-Roboto text-md'>How is your overall health?</h4>
+            <Link to='/sleep'>
                 <button className='rounded-md bg-green-900 px-5 py-2 text-white absolute bottom-5'>Go</button>
             </Link>
       </div>

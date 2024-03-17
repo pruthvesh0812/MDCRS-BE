@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
 import Select from 'react-select';
-import { dietContext } from '../../App';
+import { dietContext } from '../App';
 import { Link } from 'react-router-dom';
 
 export default function Diet2() {

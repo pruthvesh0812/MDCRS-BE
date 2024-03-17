@@ -2,17 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
+import { useSetRecoilState } from 'recoil';
+import { PredictNow } from '../../store/atoms/PredictNow';
+// import { useHistory } from 'react-router-dom'; 
 const Basic1 = () => {
+  const setUserLifestyle = useSetRecoilState(PredictNow)
+  // const history = useHistory();
   return (
     <div className='ml-[30%] my-[10%] '>
       <Formik
         initialValues={{
-          age: '',
-          gender: '',
+          age: 0,
+          gender: 0,
           isPregnant: false,
-          weight: '',
-          height: ''
+          weight: 0,
+          height: 0
         }}
         validationSchema={Yup.object({
           age: Yup.number().min(0, 'Age must be a positive number').max(110, 'Age must be less than or equal to 110').required('Required'),
@@ -20,11 +24,13 @@ const Basic1 = () => {
           weight: Yup.number().min(0, 'Weight must be a positive number').required('Required'),
           height: Yup.number().min(0, 'Height must be a positive number').required('Required'),
         })}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            console.log(values);
-            setSubmitting(false);
-          }, 400);
+        onSubmit={(values) => {
+          console.log(values.age, values.height, values.weight, values.gender)
+          setUserLifestyle((prev) => ({ ...prev, Age: values.age }))
+          const bmi = values.weight / (values.height * values.height)
+            setUserLifestyle((prev) => ({ ...prev, BMI: bmi }))
+        
+
         }}
       >
         <Form>
@@ -32,7 +38,9 @@ const Basic1 = () => {
             <h3 className='font-Roboto text-sm mb-1'>
               Age
             </h3>
-            <Field type="number" name="age" placeholder="Enter age in years" className='h-8 border border-green-500 px-3 py-2 rounded  focus:outline-none focus:border-green-700 w-1/2' />
+            <Field type="number" name="age" placeholder="Enter age in years"
+
+              className='h-8 border border-green-500 px-3 py-2 rounded  focus:outline-none focus:border-green-700 w-1/2' />
             <ErrorMessage name="age" component="div" className="text-red-500 test-sm" />
           </div>
           <br />
@@ -43,15 +51,18 @@ const Basic1 = () => {
             </h3>
             <div role="group" aria-labelledby="my-radio-group">
               <label>
-                <Field type="radio" name="gender" value="male" />
+                <Field type="radio" name="gender" value="male"
+                  onClick={(e) => { setUserLifestyle((prev) => ({ ...prev, Gender: 1 })) }} />
                 Male
               </label>
               <label className='ml-5'>
-                <Field type="radio" name="gender" value="female"/>
+                <Field type="radio" name="gender" value="female"
+                  onClick={(e) => { setUserLifestyle((prev) => ({ ...prev, Gender: 0 })) }} />
                 Female
               </label>
               <label className='ml-5'>
-                <Field type="radio" name="gender" value="other" />
+                <Field type="radio" name="gender" value="other"
+                  onClick={(e) => { setUserLifestyle((prev) => ({ ...prev, Gender: 2 })) }} />
                 Other
               </label>
             </div>
@@ -92,9 +103,9 @@ const Basic1 = () => {
           </Field>
           <br />
 
-          <Link to=''>
-            <button type='submit' className='rounded-md bg-green-900 px-5 py-2 text-white mt-5'>Submit</button>
-          </Link>
+          {/* <Link to='/basic4'> */}
+          <button type='submit' className='rounded-md bg-green-900 px-5 py-2 text-white mt-5'>Confirm</button>
+          {/* </Link> */}
         </Form>
       </Formik>
     </div>
